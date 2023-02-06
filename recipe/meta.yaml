@@ -1,5 +1,5 @@
 {% set name = "noaa-coops" %}
-{% set version = "0.1.9" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/noaa_coops-{{ version }}.tar.gz
-  sha256: f01ca0600624e086af68523502e71e01091aa42c69285e527c5953a3f76f9663
+  sha256: 2f0a0ca8af38294549cdbd391e17af58e9a1e973446120767a34d178dee98312
 
 build:
   noarch: python
