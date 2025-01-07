@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/noaa_coops-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/noaa_coops-{{ version }}.tar.gz
   sha256: 9b7853cd4b2961332e930723dee05b45a8539976cbd5a2550fd3577e3c20841f
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   host:
-    - python >=3.9,<4.0
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.9,<4.0
+    - python >={{ python_min }},<4.0
     - requests >=2.32.3,<3.0.0
     - numpy >=1.24.1,<2.0.0
     - pandas >=2.2.2,<3.0.0
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/GClunies/noaa_coops
