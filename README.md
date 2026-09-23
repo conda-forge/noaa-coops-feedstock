@@ -5,9 +5,9 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/noaa-coops-feed
 
 Home: https://github.com/GClunies/noaa_coops
 
-Package license: GPL-3.0-or-later
+Package license: Apache-2.0
 
-Summary: Python wrapper for NOAA Tides & Currents Data and Metadata
+Summary: Python wrapper for NOAA Tides & Currents Data and Metadata.
 
 Current build status
 ====================
