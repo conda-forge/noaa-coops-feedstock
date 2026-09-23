@@ -1,18 +1,18 @@
 {% set name = "noaa-coops" %}
-{% set version = "0.4.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/noaa_coops-{{ version }}.tar.gz
-  sha256: 9b7853cd4b2961332e930723dee05b45a8539976cbd5a2550fd3577e3c20841f
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/noaa_coops-{{ version }}.tar.gz
+  sha256: 545ee6627699d909e4d035fae14f5cd8f43598ccd6324e88840d6aa181003fde
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,10 +21,10 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<4.0
-    - requests >=2.32.3,<3.0.0
+    - requests >=2.32.3
     - numpy >=1.24.1,<2.0.0
-    - pandas >=2.2.2,<3.0.0
-    - zeep >=4.2.1,<5.0.0
+    - pandas >=2.2.2
+    - zeep >=4.2.1
 
 test:
   imports:
