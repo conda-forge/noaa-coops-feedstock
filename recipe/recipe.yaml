@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  version: "1.0.0"
+
+package:
+  name: noaa-coops
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/n/noaa-coops/noaa_coops-${{ version }}.tar.gz
+  sha256: 545ee6627699d909e4d035fae14f5cd8f43598ccd6324e88840d6aa181003fde
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling >=1.24
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - requests >=2.32.3
+    - pandas >=2.2.2
+    - zeep >=4.2.1
+
+tests:
+  - python:
+      imports:
+        - noaa_coops
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: Python wrapper for NOAA Tides & Currents Data and Metadata.
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/GClunies/noaa_coops
+
+extra:
+  recipe-maintainers:
+    - ocefpaf
